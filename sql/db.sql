@@ -38,10 +38,10 @@ VALUES ("Peikonlehti", "Peikonlehti kasvaa kookkaaksi kauniine, vihreine lehtine
 ("Paavonnukkumatti", "Nukkumatti eli paavonnukkumatti on veikeä huonekasvi, joka illan tullen nostaa lehdet pystyyn ja kääntää ne suppuun.", 1, 00.00),
 ("Rahapuu", "Rahapuu on erittäin kestävä ja helppohoitoinen. Se kasvaa ja kukoistaa useimmissa ympäristöissä, ja tuottaa huoneilmaan runsaasti happea varsinkin öisin.", 2, 00.00),
 ("Aloe vera", "Aloe vera ei vaadi hoitajaltaan paljon, ja siksi se sopiikin mainiosti myös niille, joiden viherpeukalo kasvaa keskellä kämmentä.", 2, 00.00),
-("Anopinkieli", " Anopinkieli on ollut rakastettu huonekasvi Suomessa jo ainakin 1950-luvulta lähtien. Suosion salaisuus pilee todennäköisesti anopinkielen selkeän graafisessa kasvutavassa sekä helppohoitoisuudessa. Se on kuin tehty keskuslämmitteisiin asuntoihin, missä huoneen lämpötila pysyy samana ympäri vuoden.", 2, 00.00),
-("Mehiruusuke", "Mehiruusukkeet ovat mehikasveja, joilla on kauniinväriset, ruusukkeiksi kerääntyneet lehdet. Mehiruusukkeissa on paljon lajikkeita ja vaihtoehtoja.", 2, 00.00),
+("Anopinkieli", "Anopinkieli on ollut rakastettu huonekasvi Suomessa jo ainakin 1950-luvulta lähtien. Suosion salaisuus pilee todennäköisesti anopinkielen selkeän graafisessa kasvutavassa sekä helppohoitoisuudessa. Se on kuin tehty keskuslämmitteisiin asuntoihin, missä huoneen lämpötila pysyy samana ympäri vuoden.", 2, 00.00),
+("Mehiruusuke", "Mehiruusukkeet ovat mehikasveja, joilla on kauniinväriset, ruusukkeiksi kerääntyneet lehdet. Mehiruusukkeissa on paljon lajikkeita ja vaihtoehtoja.", 2, 00.00),
 ("Mehipuu", "Mehipuiden paksut lehdet kasvavat kauniina ruusukkeena paljaan varren päässä. Lehdet ovat joko yksivärisiä tai niissä voi olla valkoisia, punaisia tai keltaisia kuvioita lajista riippuen. ", 2, 00.00),
-("Nukkaitulehti", "Nukkaitulehti on helppo huonekasvi, jolla on paksut mehevät, harmaanvihreät lehdet. ", 2, 00.00),
+("Nukkaitulehti", "Nukkaitulehti on helppo huonekasvi, jolla on paksut mehevät, harmaanvihreät lehdet.", 2, 00.00),
 ("Paunikko", "Paunikot ovat maksaruohoihin kuuluvia helppohoitoisia huonekasveja. Paunikot ovat kotoisin Aasiasta ja Afrikasta, suurin osa lajikkeista tulee kuitenkin Etelä-Afrikasta.", 2, 00.00),
 ("Marraskuunkaktus", "Marraskuunkaktus on hiukan hennompi kuin joulukaktus. Versojen kärjet ovat halkoiset ja kasvavat pystyssä. Lehtimäiset varret ovat litteät ja hammaslaitaiset.", 3, 00.00),
 ("Jänönopuntia", "Opuntia kasvaa luonnossa hyvin kuivilla alueilla.", 3, 00.00),
@@ -53,4 +53,4 @@ VALUES ("Peikonlehti", "Peikonlehti kasvaa kookkaaksi kauniine, vihreine lehtine
 ("Keraaminen ruukku terrakotta", "Linjakas pyöreä ruukku italialaista terrakottaa. Halkaisija 25cm. Muista aluslautanen!", 4, 00.00),
 ("Keraaminen aluslautanen", "Aluslautanen terrakotta ruukulle.", 4, 00.00),
 ("Rottinkinen kukkateline", "50cm korkea kukkateline. Materiaali on kaunista rottinkia.", 4, 00.00),
-("Biolan mustamulta 4L", "Biolan Musta Multa on yleismulta kaikille viherkasveille ja kukkiville ruukkukasveille. Kompostoimalla kypsytetty multaseos on lannoitettu broilerinlantakompostilla ja kalkittu magnesiumpitoisella kalkkikivijauheella. Kompostoinnin ansiosta multaan muodostuu kestävä mururakenne.", 4, 00.00);
+("Biolan mustamulta 4L", "Biolan Musta Multa on yleismulta kaikille viherkasveille ja kukkiville ruukkukasveille. Kompostoimalla kypsytetty multaseos on lannoitettu broilerinlantakompostilla ja kalkittu magnesiumpitoisella kalkkikivijauheella. Kompostoinnin ansiosta multaan muodostuu kestävä mururakenne.", 4, 00.00);

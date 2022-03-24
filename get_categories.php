@@ -3,8 +3,8 @@ require_once "inc/functions.php";
 require_once 'inc/headers.php';
 
 try {
-    openDB();
-    echo "Yhteys tietokantaan muodostettu!<br><br><br>";
+    $db = openDB();
+    selectAsJson($db, "SELECT * FROM tuoteryhma");
 }
 catch (PDOException $pdoex) {
     returnError($pdoex);

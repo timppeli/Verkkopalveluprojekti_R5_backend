@@ -19,4 +19,9 @@ CREATE TABLE tuote (
     hinta DECIMAL(4,2),
     kuva_url VARCHAR(255),
     CONSTRAINT `fk_trnro` FOREIGN KEY (trnro) REFERENCES tuoteryhma(trnro)
-)
+);
+
+INSERT INTO tuoteryhma (trnimi)
+VALUES ("Viherkasvit"), 
+("Mehikasvit"), 
+("Kaktukset");

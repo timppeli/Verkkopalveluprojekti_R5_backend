@@ -25,7 +25,11 @@ INSERT INTO tuoteryhma (trnimi)
 VALUES ("Viherkasvit"), 
 ("Mehikasvit"), 
 ("Kaktukset"),
+<<<<<<< HEAD
 ("Tarvikkeet");
+=======
+("Tuotteet");
+>>>>>>> 50ec372e4bedb2d90a233d91bd83337579bc8764
 
 INSERT INTO tuote (tuotenimi, tuotekuvaus, trnro, hinta)
 VALUES ("Peikonlehti", "Peikonlehti kasvaa kookkaaksi kauniine, vihreine lehtineen. Komeimmillaan lehdet ovat 70x100 cm kokoiset ja niissä voi olla jopa 50 erikokoista reikää.Peikonlehti kasvaa kookkaaksi kauniine, vihreine lehtineen. Komeimmillaan lehdet ovat 70x100 cm kokoiset ja niissä voi olla jopa 50 erikokoista reikää.", 1, 00.00),

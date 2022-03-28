@@ -1,15 +1,16 @@
--- TUOTERYHMÄ
+-- TIETOKANNAN LUONTI
 DROP DATABASE IF EXISTS kukkakauppa;
 CREATE DATABASE kukkakauppa;
 USE kukkakauppa;
 
+-- TUOTERYHMÄ-TAULUN LUONTI
 DROP TABLE IF EXISTS tuoteryhma;
 CREATE TABLE tuoteryhma (
     trnro INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     trnimi VARCHAR(255) NOT NULL
 );
 
--- TUOTE
+-- TUOTE-TAULUN LUONTI
 DROP TABLE IF EXISTS tuote;
 CREATE TABLE tuote (
     tuotenro INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -17,16 +18,26 @@ CREATE TABLE tuote (
     tuotekuvaus TEXT,
     trnro INT,
     hinta DECIMAL(4,2),
-    kuva_url VARCHAR(255),
     CONSTRAINT `fk_trnro` FOREIGN KEY (trnro) REFERENCES tuoteryhma(trnro)
 );
 
+-- HOITOOHJE-TAULUN LUONTI
+DROP TABLE IF EXISTS hoitoohje;
+CREATE TABLE hoitoohje (
+    ohjenro INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    ohje TEXT NOT NULL,
+    tuote_id INT,
+    CONSTRAINT `fk_tuote_id` FOREIGN KEY (tuote_id) REFERENCES tuote(tuotenro)
+);
+
+-- TUOTERYHMÄ -> ALOITUSDATAN SYÖTTÖ
 INSERT INTO tuoteryhma (trnimi)
 VALUES ("Viherkasvit"), 
 ("Mehikasvit"), 
 ("Kaktukset"),
 ("Tarvikkeet");
 
+-- TUOTE -> ALOITUSDATAN SYÖTTÖ
 INSERT INTO tuote (tuotenimi, tuotekuvaus, trnro, hinta)
 VALUES ("Peikonlehti", "Peikonlehti kasvaa kookkaaksi kauniine, vihreine lehtineen. Komeimmillaan lehdet ovat 70x100 cm kokoiset ja niissä voi olla jopa 50 erikokoista reikää.Peikonlehti kasvaa kookkaaksi kauniine, vihreine lehtineen. Komeimmillaan lehdet ovat 70x100 cm kokoiset ja niissä voi olla jopa 50 erikokoista reikää.", 1, 00.00),
 ("Kultaköynnös", "Kultaköynnöksen sydämenmuotoiset vihreät lehdet ovat valkoisella marmoroidut. Väritys on parhaimmillaan valoisassa paikassa.", 1, 00.00),
@@ -54,3 +65,8 @@ VALUES ("Peikonlehti", "Peikonlehti kasvaa kookkaaksi kauniine, vihreine lehtine
 ("Keraaminen aluslautanen", "Aluslautanen terrakotta ruukulle.", 4, 00.00),
 ("Rottinkinen kukkateline", "50cm korkea kukkateline. Materiaali on kaunista rottinkia.", 4, 00.00),
 ("Biolan mustamulta 4L", "Biolan Musta Multa on yleismulta kaikille viherkasveille ja kukkiville ruukkukasveille. Kompostoimalla kypsytetty multaseos on lannoitettu broilerinlantakompostilla ja kalkittu magnesiumpitoisella kalkkikivijauheella. Kompostoinnin ansiosta multaan muodostuu kestävä mururakenne.", 4, 00.00);
+
+-- HOITOOHJE -> ALOITUSDATAN SYÖTTÖ
+INSERT INTO hoitoohje (ohje, tuote_id)
+VALUES ("Huoneenlämpö riittää peikonlehdelle. Lehtiä suihkutetaan. Kesällä kastellaan runsaasti, eikä multa saa kuivua talvellakaan. Lannoitetaan kerran viikossa seoslannoitteella kasvun aikana. Hauraita ilmajuuria ei saa leikata.
+", 1);

@@ -84,11 +84,11 @@ VALUES ("Huoneenlämpö riittää peikonlehdelle. Lehtiä suihkutetaan. Kesäll�
 ("Viihtyy valoisassa paikassa. Kesällä suojattava voimakkaalta auringonpaisteelta. Mehikasvit varastoivat kosteutta lehtiinsä ja voivat siksi selviytyä parikin viikkoa ilman kastelua.", 12), 
 ("Sijoita mehipuut aurinkoiselle paikalla. Pyri pitämään kasvualusta niukan kosteana. Mehipuut varastoivat vettä lehtiinsä ja varsiinsa, joten ne ovat herkkiä liikakastelulle. Ne kuitenkin tarvitsevat enemmän kosteutta kuin useimmat muut mehikasvit. Lannoita kasvukaudella miedolla lannoitteella noin kerran kuukaudessa.", 13), 
 ("Nukkaitulehti menestyy parhaiten aurinkoisella tai puolivarjoisella kasvupaikalla. Kastelun tulee olla niukkaa, sillä kasvi varastoi paksuihin lehtiinsä vettä.", 14),
-("Paunikot menestyvät parhaiten aurinkoisilla kasvupaikoilla, voimakkainta paahdetta tulee kuitenkin välttää.  Ne kastellaan kerralla runsaasti, ja sen jälkeen mullan annetaan kuivahtaa hyvin.", 15), 
+("Paunikot menestyvät parhaiten aurinkoisilla kasvupaikoilla, voimakkainta paahdetta tulee kuitenkin välttää. Ne kastellaan kerralla runsaasti, ja sen jälkeen mullan annetaan kuivahtaa hyvin.", 15), 
 ("Säännöllinen kastelu ja lannoitus kasvukaudella huhti-elokuu sekä kukinnan aikana, multa saa kuivahtaa.", 16), 
 ("kastellaan niukahkosti välttäen ylikastelua, mutta kuitenkin niin, että kaktus pysyy elinvoimaisena. Kesällä kastelu voi olla reilumpaa, kunhan multa kuivuu kunnolla kasteluiden välissä.", 17), 
 ("Keväisin kasvun alkaessa kultasiilikaktus suojataan paahteelta. Kun se tottuu UV-säteilyyn vähitellen, se kestää kesällä jo paahteenkin.", 18), 
 ("Sijoitetaan puolivarjoiseen tai valoisaan paikkaan, ei kuitenkaan suoraan auringonvaoon. Kastellaan harvoin, mutta kerralla kunnolla mieluiten altapäin. Pintamullan tulee kuivua ennen kastelua. Lannoitus keväästä syksyyn.", 19), 
 ("Pylvästyräkki sijoitetaan valoisaan paikkaan. Se viihtyy normaalissa huoneenlämmössä, talvella lämpötila voi olla viileämpikin. Vetoista paikkaa tulee kuitenkin välttää. Tyräkki sietää hyvin huoneilman kuivuutta.", 20), 
 ("Lapakaktus ei viihdy suorassa auringonpaahteessa, mutta sen kasvupaikan tulisi kuitenkin olla runsasvaloinen. Suorassa paahteessa lehdet saattavat palaa tai kellastua. Pärjää myös varjoisemmalla paikalla, mutta ei kuki.", 21), 
-("Menestyy auringossa ja hieman varjoisemmassa kasvupaikassa.  Kastellaan vasta kun kasvualasta on kuivunut kokonaan. Vältettävä liikakastelua. ", 22);
+("Menestyy auringossa ja hieman varjoisemmassa kasvupaikassa.  Kastellaan vasta kun kasvualasta on kuivunut kokonaan. Vältettävä liikakastelua.", 22);

@@ -69,4 +69,26 @@ VALUES ("Peikonlehti", "Peikonlehti kasvaa kookkaaksi kauniine, vihreine lehtine
 -- HOITOOHJE -> ALOITUSDATAN SYÖTTÖ
 INSERT INTO hoitoohje (ohje, tuote_id)
 VALUES ("Huoneenlämpö riittää peikonlehdelle. Lehtiä suihkutetaan. Kesällä kastellaan runsaasti, eikä multa saa kuivua talvellakaan. Lannoitetaan kerran viikossa seoslannoitteella kasvun aikana. Hauraita ilmajuuria ei saa leikata.
-", 1);
+", 1), 
+("Kultaköynnös viihtyy parhaiten puolivarjoisassa paikassa suojassa suoralta auringonpaisteelta. Lehtien kirjavuus on silloin voimakkaimmillaan, kun varjossa lehdet ovat vihreämmät. Valoisassa lehdet taas muuttuvat hyvin vaaleiksi. Kultaköynnöstä kastellaan kohtuudella ja pintamulta saa kuivahtaa kastelukertojen välissä.", 2),
+("Vältä paikkaa, johon lankeaa suoraa auringonvaloa. Se nimittäin kasvattaa suurempia lehtiä saadessaan niukemmin valoa. Vuoden lämpimämmällä puoliskolla voit lannoittaa kasvia noin kahden viikon välein ja kastella kohtuullisesti. Multa saa kuivua kastelukertojen välillä.", 3), 
+("Alokasia pitää lämmöstä, kosteudesta ja kohtalaisesta valosta. Liika kosteus voi aiheuttaa juurimätää.", 4), 
+("Kastele kohtuudella, talvella niukasti. Lannoita kahdesti kuussa keväästä syksyyn.", 5), 
+("Ei siedä suoraa auringonpaistetta. Se suosii korkeaa ilmankosteutta. Maijat viihtyvät happamassa mullassa. Kasvin juuret kasvavat nopeasti täyttäen ruukun.", 6), 
+("Kastele viirivehkaa säännöllisesti läpi vuoden. Multa saa kevyesti kuivahtaa kastelujen välillä, mutta paha kuivuminen aiheuttaa lehtien kärkien ruskettumista.", 7), 
+("Kostea ilma saa kasvin kukoistamaan, joten nukkumattia kannattaa suihkutella ja sumutella usein.", 8), 
+("Kastele rahapuuta niukasti ja varo istuttamasta sitä liian ravinteikkaaseen multaan.", 9), 
+("Helppohoitoinen kasvi sietää hyvin kuivuutta ja altistuu ani harvoin tuholaisille tai kasvitaudeille.", 10), 
+("Kastele anopinkieliä kasvukaudella, eli maaliskuusta syyskuuhun, noin parin viikon välein. Tällöin voit sekoittaa kasteluveteen nestemäistä lannoitetta. Kastele anopinkieliä talvisin harvemmin. Anna mullan kuivahtaa kastelukertojen välissä. Jos satut unohtamaan kastelun, kasvi yleensä toipuu tästä, sillä se varastoi lehtiinsä vettä.
+", 11), 
+("Viihtyy valoisassa paikassa. Kesällä suojattava voimakkaalta auringonpaisteelta. Mehikasvit varastoivat kosteutta lehtiinsä ja voivat siksi selviytyä parikin viikkoa ilman kastelua.", 12), 
+("Sijoita mehipuut aurinkoiselle paikalla. Pyri pitämään kasvualusta niukan kosteana. Mehipuut varastoivat vettä lehtiinsä ja varsiinsa, joten ne ovat herkkiä liikakastelulle. Ne kuitenkin tarvitsevat enemmän kosteutta kuin useimmat muut mehikasvit. Lannoita kasvukaudella miedolla lannoitteella noin kerran kuukaudessa.", 13), 
+("Nukkaitulehti menestyy parhaiten aurinkoisella tai puolivarjoisella kasvupaikalla. Kastelun tulee olla niukkaa, sillä kasvi varastoi paksuihin lehtiinsä vettä.", 14),
+("Paunikot menestyvät parhaiten aurinkoisilla kasvupaikoilla, voimakkainta paahdetta tulee kuitenkin välttää.  Ne kastellaan kerralla runsaasti, ja sen jälkeen mullan annetaan kuivahtaa hyvin.", 15), 
+("Säännöllinen kastelu ja lannoitus kasvukaudella huhti-elokuu sekä kukinnan aikana, multa saa kuivahtaa.", 16), 
+("kastellaan niukahkosti välttäen ylikastelua, mutta kuitenkin niin, että kaktus pysyy elinvoimaisena. Kesällä kastelu voi olla reilumpaa, kunhan multa kuivuu kunnolla kasteluiden välissä.", 17), 
+("Keväisin kasvun alkaessa kultasiilikaktus suojataan paahteelta. Kun se tottuu UV-säteilyyn vähitellen, se kestää kesällä jo paahteenkin.", 18), 
+("Sijoitetaan puolivarjoiseen tai valoisaan paikkaan, ei kuitenkaan suoraan auringonvaoon. Kastellaan harvoin, mutta kerralla kunnolla mieluiten altapäin. Pintamullan tulee kuivua ennen kastelua. Lannoitus keväästä syksyyn.", 19), 
+("Pylvästyräkki sijoitetaan valoisaan paikkaan. Se viihtyy normaalissa huoneenlämmössä, talvella lämpötila voi olla viileämpikin. Vetoista paikkaa tulee kuitenkin välttää. Tyräkki sietää hyvin huoneilman kuivuutta.", 20), 
+("Lapakaktus ei viihdy suorassa auringonpaahteessa, mutta sen kasvupaikan tulisi kuitenkin olla runsasvaloinen. Suorassa paahteessa lehdet saattavat palaa tai kellastua. Pärjää myös varjoisemmalla paikalla, mutta ei kuki.", 21), 
+("Menestyy auringossa ja hieman varjoisemmassa kasvupaikassa.  Kastellaan vasta kun kasvualasta on kuivunut kokonaan. Vältettävä liikakastelua. ", 22);

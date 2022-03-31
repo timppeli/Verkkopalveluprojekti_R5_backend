@@ -30,6 +30,14 @@ CREATE TABLE hoitoohje (
     CONSTRAINT `fk_tuote_id` FOREIGN KEY (tuote_id) REFERENCES tuote(tuotenro)
 );
 
+-- TIETEELLINEN_NIMI-TAULUN LUONTI
+DROP TABLE IF EXISTS tieteellinen_nimi;
+CREATE TABLE tieteellinen_nimi (
+    tieteellinen_nimi VARCHAR(255) NOT NULL,
+    tuote_id INT,
+    CONSTRAINT `fk_tuote_tieteellinen_id` FOREIGN KEY (tuote_id) REFERENCES tuote(tuotenro)
+);
+
 -- TUOTERYHMÄ -> ALOITUSDATAN SYÖTTÖ
 INSERT INTO tuoteryhma (trnimi)
 VALUES ("Viherkasvit"), 
@@ -92,3 +100,28 @@ VALUES ("Huoneenlämpö riittää peikonlehdelle. Lehtiä suihkutetaan. Kesäll�
 ("Pylvästyräkki sijoitetaan valoisaan paikkaan. Se viihtyy normaalissa huoneenlämmössä, talvella lämpötila voi olla viileämpikin. Vetoista paikkaa tulee kuitenkin välttää. Tyräkki sietää hyvin huoneilman kuivuutta.", 20), 
 ("Lapakaktus ei viihdy suorassa auringonpaahteessa, mutta sen kasvupaikan tulisi kuitenkin olla runsasvaloinen. Suorassa paahteessa lehdet saattavat palaa tai kellastua. Pärjää myös varjoisemmalla paikalla, mutta ei kuki.", 21), 
 ("Menestyy auringossa ja hieman varjoisemmassa kasvupaikassa.  Kastellaan vasta kun kasvualasta on kuivunut kokonaan. Vältettävä liikakastelua.", 22);
+
+-- TIETEELLINEN NIMI -> ALOITUSDATAN SYÖTTÖ
+INSERT INTO tieteellinen_nimi
+VALUES ("Monstera deliciosa", 1),
+("Epipremnum aureum", 2),
+("Pilea peperomioides", 3),
+("Alocasia", 4),
+("Yucca gigantea", 5),
+("Calathea orbifolia", 6),
+("Spathiphyllum wallisii", 7),
+("Maranta leuconeura", 8),
+("Crassula portulacea", 9),
+("Aloë vera", 10),
+("Sansevieria trifasciata", 11),
+("Purple pearl", 12),
+("Aeonium", 13),
+("Kalanchoë tomentosa", 14),
+("Crassula hobbit", 15),
+("Schlumbergera", 16),
+("Opuntia microdasys", 17),
+("Echinocactus grusonii", 18),
+("Epiphyllum anguliger", 19),
+("Euphorbia trigona", 20),
+("Lepismium cruciforme", 21),
+("Cleistocactus winteri", 22)

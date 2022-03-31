@@ -8,7 +8,7 @@ $product_id = $parameters[1];
 
 try {
     $db = openDB();
-    selectAsJson($db, "SELECT tuotenro, tuotenimi, tuotekuvaus, trnro, hinta, ohje FROM tuote LEFT JOIN hoitoohje ON tuote.tuotenro = hoitoohje.tuote_id WHERE tuote.tuotenro = $product_id");
+    selectAsJson($db, "SELECT tuotenro, tuotenimi, tieteellinen_nimi, tuotekuvaus, trnro, hinta, ohje FROM tuote LEFT JOIN hoitoohje ON tuote.tuotenro = hoitoohje.tuote_id LEFT JOIN tieteellinen_nimi ON tuote.tuotenro = tieteellinen_nimi.tuote_id WHERE tuote.tuotenro = $product_id");
 } catch (PDOException $pdoex) {
     returnError($pdoex);
 }

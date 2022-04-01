@@ -2,28 +2,25 @@
 require_once "../inc/functions.php";
 require_once '../inc/headers.php';
 
-$newcategory = filter_input(INPUT_POST, "newcategory");
-
-if( !isset($newcategory)) {
-    echo "Parametreja puuttui. Ei voida lisätä kategoriaa";
-    exit;
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+  return 0;
 }
 
-if( empty($newcategory)) {
-    echo "Ei voi lisätä tyhjiä arvoja";
-    exit;
-}
+$input = json_decode(file_get_contents("php://input"));
+$trnimi = filter_var($input->trnimi, FILTER_SANITIZE_SPECIAL_CHARS);
 
-try{
-    //Suoritetaan parametrien lisääminen tietokantaan.
-    $sql = "INSERT INTO tuoteryhma (trnimi) VALUES (?)";
-    $statement = $pdo->prepare($sql);
-    $statement->bindParam($newcategory);
+try {
+  $db = openDB();
 
-    $statement->execute();
+  $query = $db->prepare("INSERT INTO tuoteryhma (trnimi) VALUES (:trnimi)");
+  $query->bindValue(":trnimi", $trnimi, PDO::PARAM_STR);
+  $query->execute();
 
-    echo "Kategoria ".$newcategory." on lisätty tietokantaan"; 
-}catch(PDOException $e){
-    echo "Kategoriaa ei voitu lisätä<br>";
-    echo $e->getMessage();
+  header("HTTP/1.1 200 OK");
+  $data = array("id" => $db->lastInsertId(), "trnimi" => $trnimi);
+  print json_encode($data);
+} catch (PDOException $pdoex) {
+  header('HTTP/1.1 500 Internal Servel Error');
+  $error = array('error' => $pdoex->getMessage());
+  print json_encode($error);
 }

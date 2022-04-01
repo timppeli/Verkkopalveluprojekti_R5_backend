@@ -6,8 +6,8 @@ header("Access-Control-Allow-Headers: Accept, Content-Type, Access-Control-Allow
 header("Access-Control-Max-Age: 3600");
 header("Content-Type: application/json");
 
-if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") 
-    if (isset($_SERVER["HTTP_ACCESS_CONTROL_REQUEST_METHOD"])) {
+if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
+    if (isset($_SERVER["HTTP_ACCESS_CONTROL_REQUEST_METHOD"])) 
         header("Access-Control-Allow-Methods: GET, POST, OPTIONS");        
     
     if (isset($_SERVER["HTTP_ACCESS_CONTROL_REQUEST_HEADERS"])) 

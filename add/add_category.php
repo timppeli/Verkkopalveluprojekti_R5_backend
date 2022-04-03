@@ -2,10 +2,6 @@
 require_once "../inc/functions.php";
 require_once '../inc/headers.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-  return 0;
-}
-
 $input = json_decode(file_get_contents("php://input"));
 $trnimi = filter_var($input->trnimi, FILTER_SANITIZE_SPECIAL_CHARS);
 

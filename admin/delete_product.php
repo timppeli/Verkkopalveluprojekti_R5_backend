@@ -8,7 +8,7 @@ $tuotenro = filter_var($input->tuotenro, FILTER_SANITIZE_SPECIAL_CHARS);
 try {
     $db = openDB();;
 
-    $query = $db->prepare("DELETE FROM tuote WHERE tuotenro = (:tuotenro)");
+    $query = $db->prepare("DELETE FROM hoitoohje WHERE tuote_id = (:tuotenro); DELETE FROM tieteellinen_nimi WHERE tuote_id = (:tuotenro); DELETE FROM tuote WHERE tuotenro = (:tuotenro);");
     $query->bindValue(":tuotenro", $tuotenro, PDO::PARAM_INT);
     $query->execute();
 

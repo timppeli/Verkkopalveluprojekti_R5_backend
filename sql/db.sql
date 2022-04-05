@@ -124,4 +124,4 @@ VALUES ("Monstera deliciosa", 1),
 ("Epiphyllum anguliger", 19),
 ("Euphorbia trigona", 20),
 ("Lepismium cruciforme", 21),
-("Cleistocactus winteri", 22)
+("Cleistocactus winteri", 22);

@@ -8,7 +8,10 @@ $trnimi = filter_var($input->trnimi, FILTER_SANITIZE_SPECIAL_CHARS);
 try {
   $db = openDB();
 
-  $query = $db->prepare("INSERT INTO tuote (tuotenimi, tuotekuvaus, hinta) VALUES (:tuotenimi, :tuotekuvaus, :hinta); INSERT INTO hoitoohje (hoito) VALUES (:ohje); INSERT INTO tieteellinen_nimi (tieteellinen_nimi) VALUES (:tieteellinen_nimi);");
+  $query = $db->prepare("SELECT trnro FROM tuoteryhma WHERE trnimi like '$trnimi';
+                         INSERT INTO tuote (trnro, tuotenimi, tuotekuvaus, hinta) VALUES (:tuotenimi, :tuotekuvaus, :hinta); 
+                         INSERT INTO hoitoohje (hoito) VALUES (:ohje); 
+                         INSERT INTO tieteellinen_nimi (tieteellinen_nimi) VALUES (:tieteellinen_nimi);");
   $query->bindValue(":trnimi", $trnimi, PDO::PARAM_STR);
   $query->execute();
 

@@ -13,16 +13,19 @@ $tieteellinen_nimi = filter_var($input->tieteellinen_nimi, FILTER_SANITIZE_SPECI
 try {
   $db = openDB();
 
-  $query = $db->prepare(
-  "INSERT INTO tuote (trnro, tuotenimi, tuotekuvaus, hinta) VALUES (:trnro, :tuotenimi, :tuotekuvaus, :hinta);                        
-   INSERT INTO hoitoohje (hoito) VALUES (:ohje); 
-   INSERT INTO tieteellinen_nimi (tieteellinen_nimi) VALUES (:tieteellinen_nimi);");
+  $query = $db->prepare("INSERT INTO tuote (trnro, tuotenimi, tuotekuvaus, hinta) VALUES (:trnro, :tuotenimi, :tuotekuvaus, :hinta);");
   $query->bindValue(":trnro", $trnro, PDO::PARAM_STR);
   $query->bindValue(":tuotenimi", $tuotenimi, PDO::PARAM_STR);
   $query->bindValue(":tuotekuvaus", $tuotekuvaus, PDO::PARAM_STR);
   $query->bindValue(":hinta", $hinta, PDO::PARAM_STR);
+  $query->execute();
+
+  $tuotenro = $db->lastInsertId();
+  $query = $db->prepare("INSERT INTO hoitoohje (ohje, tuote_id) VALUES (:ohje, :tuotenro); 
+  INSERT INTO tieteellinen_nimi (tieteellinen_nimi, tuote_id) VALUES (:tieteellinen_nimi, :tuotenro);");
   $query->bindValue(":ohje", $ohje, PDO::PARAM_STR);
   $query->bindValue(":tieteellinen_nimi", $tieteellinen_nimi, PDO::PARAM_STR);
+  $query->bindValue(":tuotenro", $tuotenro, PDO::PARAM_STR);
   $query->execute();
 
   header("HTTP/1.1 200 OK");

@@ -38,6 +38,39 @@ CREATE TABLE tieteellinen_nimi (
     CONSTRAINT `fk_tuote_tieteellinen_id` FOREIGN KEY (tuote_id) REFERENCES tuote(tuotenro)
 );
 
+-- ASIAKAS-TAULUN LUONTI
+DROP TABLE IF EXISTS asiakas;
+CREATE TABLE asiakas(
+    asiakasnro INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    etunimi VARCHAR(50) NOT NULL,
+    sukunimi VARCHAR(50) NOT NULL,
+    osoite VARCHAR(50) NOT NULL,
+    postinro VARCHAR(50) NOT NULL,
+    postitmp VARCHAR(50) NOT NULL
+);
+
+-- TILAUS-TAULUN LUONTI
+DROP TABLE IF EXISTS tilaus;
+CREATE TABLE tilaus(
+    tilausnro INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    asiakas_id INT NOT NULL,
+    tilausaika TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT `fk_tilaus_asiakas` FOREIGN KEY (asiakas_id)
+    REFERENCES asiakas(asiakasnro)
+    ON DELETE RESTRICT
+);
+
+-- TILAUSRIVI-TAULUN LUONTI
+DROP TABLE IF EXISTS tilausrivi;
+CREATE TABLE tilausrivi(
+    tilaus_id INT NOT NULL,
+    tuote_id INT NOT NULL,
+    CONSTRAINT `fk_tilausrivi_tilaus` FOREIGN KEY (tilaus_id)
+    REFERENCES tilaus(tilausnro),
+    CONSTRAINT `fk_tilausrivi_tuote` FOREIGN KEY (tuote_id)
+    REFERENCES tuote(tuotenro)
+);
+
 -- TUOTERYHMÄ -> ALOITUSDATAN SYÖTTÖ
 INSERT INTO tuoteryhma (trnimi)
 VALUES ("Viherkasvit"), 

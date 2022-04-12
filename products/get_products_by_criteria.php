@@ -9,7 +9,9 @@ $search_term = $parameters[1];
 try {
     $db = openDB();
 
-    $sql = "SELECT * FROM tuote WHERE tuotenimi LIKE '%$search_term%'";
+    $sql = 
+    "SELECT * FROM tuote WHERE tuotenimi LIKE '%$search_term%' 
+    OR tuotekuvaus LIKE '%$search_term%'";
     $query = $db->query($sql);
     $products = $query->fetchAll(PDO::FETCH_ASSOC);
 

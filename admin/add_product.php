@@ -29,7 +29,7 @@ try {
   $query->execute();
 
   header("HTTP/1.1 200 OK");
-  $data = array("tuotenimi" => $tuotenimi);
+  $data = array("tuotenro" => $tuotenro,"tuotenimi" => $tuotenimi);
   print json_encode($data);
 } catch (PDOException $pdoex) {
   header('HTTP/1.1 500 Internal Servel Error');

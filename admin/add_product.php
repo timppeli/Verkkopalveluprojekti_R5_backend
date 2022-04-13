@@ -19,15 +19,15 @@ try {
   $query->bindValue(":tuotekuvaus", $tuotekuvaus, PDO::PARAM_STR);
   $query->bindValue(":hinta", $hinta, PDO::PARAM_STR);
   $query->execute();
-
-  $tuotenro = $db->lastInsertId();
-  $query = $db->prepare("INSERT INTO hoitoohje (ohje, tuote_id) VALUES (:ohje, :tuotenro); 
-  INSERT INTO tieteellinen_nimi (tieteellinen_nimi, tuote_id) VALUES (:tieteellinen_nimi, :tuotenro);");
-  $query->bindValue(":ohje", $ohje, PDO::PARAM_STR);
-  $query->bindValue(":tieteellinen_nimi", $tieteellinen_nimi, PDO::PARAM_STR);
-  $query->bindValue(":tuotenro", $tuotenro, PDO::PARAM_STR);
-  $query->execute();
-
+  if($tieteellinen_nimi !== null) {
+    $tuotenro = $db->lastInsertId();
+    $query = $db->prepare("INSERT INTO hoitoohje (ohje, tuote_id) VALUES (:ohje, :tuotenro); 
+    INSERT INTO tieteellinen_nimi (tieteellinen_nimi, tuote_id) VALUES (:tieteellinen_nimi, :tuotenro);");
+    $query->bindValue(":ohje", $ohje, PDO::PARAM_STR);
+    $query->bindValue(":tieteellinen_nimi", $tieteellinen_nimi, PDO::PARAM_STR);
+    $query->bindValue(":tuotenro", $tuotenro, PDO::PARAM_STR);
+    $query->execute();
+  }
   header("HTTP/1.1 200 OK");
   $data = array("tuotenro" => $tuotenro,"tuotenimi" => $tuotenimi);
   print json_encode($data);

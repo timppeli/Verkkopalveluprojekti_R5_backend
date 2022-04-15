@@ -33,10 +33,11 @@ try {
 
     // Lisätään tilausrivit
     foreach ($ostoskori as $tuote) {
-        $sql = "INSERT INTO tilausrivi (tilaus_id, tuote_id) VALUES ("
+        $sql = "INSERT INTO tilausrivi (tilaus_id, tuote_id, kpl) VALUES ("
             .
             $tilausnro . "," .
-            $tuote->tuotenro
+            $tuote->tuotenro . "," .
+            $tuote->amount
             . ")";
         executeInsert($db, $sql);
     }

@@ -4,14 +4,12 @@ CREATE DATABASE kukkakauppa;
 USE kukkakauppa;
 
 -- TUOTERYHMÄ-TAULUN LUONTI
-DROP TABLE IF EXISTS tuoteryhma;
 CREATE TABLE tuoteryhma (
     trnro INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     trnimi VARCHAR(255) NOT NULL
 );
 
 -- TUOTE-TAULUN LUONTI
-DROP TABLE IF EXISTS tuote;
 CREATE TABLE tuote (
     tuotenro INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     tuotenimi VARCHAR(255) NOT NULL,
@@ -22,7 +20,6 @@ CREATE TABLE tuote (
 );
 
 -- HOITOOHJE-TAULUN LUONTI
-DROP TABLE IF EXISTS hoitoohje;
 CREATE TABLE hoitoohje (
     ohjenro INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     ohje TEXT NOT NULL,
@@ -31,7 +28,6 @@ CREATE TABLE hoitoohje (
 );
 
 -- TIETEELLINEN_NIMI-TAULUN LUONTI
-DROP TABLE IF EXISTS tieteellinen_nimi;
 CREATE TABLE tieteellinen_nimi (
     tieteellinen_nimi VARCHAR(255) NOT NULL,
     tuote_id INT,
@@ -39,7 +35,6 @@ CREATE TABLE tieteellinen_nimi (
 );
 
 -- ASIAKAS-TAULUN LUONTI
-DROP TABLE IF EXISTS asiakas;
 CREATE TABLE asiakas(
     asiakasnro INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     etunimi VARCHAR(50) NOT NULL,
@@ -61,10 +56,10 @@ CREATE TABLE tilaus(
 );
 
 -- TILAUSRIVI-TAULUN LUONTI
-DROP TABLE IF EXISTS tilausrivi;
 CREATE TABLE tilausrivi(
     tilaus_id INT NOT NULL,
     tuote_id INT NOT NULL,
+    kpl INT NOT NULL,
     CONSTRAINT `fk_tilausrivi_tilaus` FOREIGN KEY (tilaus_id)
     REFERENCES tilaus(tilausnro),
     CONSTRAINT `fk_tilausrivi_tuote` FOREIGN KEY (tuote_id)

@@ -140,6 +140,7 @@ VALUES ("Monstera deliciosa", 1),
 ("Lepismium cruciforme", 21),
 ("Cleistocactus winteri", 22);');
   $query->execute();
+  echo "Tietokanta palautettu aloitusdatatilaan.";
 } catch (PDOException $pdoex) {
   throw $pdoex;
   echo $pdoex;

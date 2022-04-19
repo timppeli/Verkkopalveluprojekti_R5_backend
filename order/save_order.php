@@ -12,6 +12,21 @@ $postinro = filter_var($input->postinro, FILTER_SANITIZE_SPECIAL_CHARS);
 $postitmp = filter_var($input->postitmp, FILTER_SANITIZE_SPECIAL_CHARS);
 $ostoskori = $input->ostoskori;
 
+// Tarkistetaan, ettei ostoskori ole tyhjä
+if (count($ostoskori) <= 0) {
+    throw new Exception("Ostoskori on tyhjä.");
+}
+
+// Tarkistetaan, ettei yksikään kenttä ole tyhjä
+if (empty($etunimi) || empty($sukunimi) || empty($osoite) || empty($postinro) || empty($postitmp)) {
+    throw new Exception("Tarkista, että kaikki kentät on täytetty.");
+}
+
+// Tarkistetaan, että postinumeron pituus on viisi merkkiä ja sisältää vain numeroita
+if (!ctype_digit($postinro) || strlen($postinro) != 5) {
+    throw new Exception("Tarkista, että postinumero on oikein.");
+}
+
 try {
     $db = openDB();
     $db->beginTransaction();

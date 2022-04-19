@@ -50,6 +50,7 @@ CREATE TABLE tilaus(
     tilausnro INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     asiakas_id INT NOT NULL,
     tilausaika TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    kasitelty BOOLEAN NOT NULL DEFAULT 0,
     CONSTRAINT `fk_tilaus_asiakas` FOREIGN KEY (asiakas_id)
     REFERENCES asiakas(asiakasnro)
     ON DELETE RESTRICT

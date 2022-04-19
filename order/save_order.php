@@ -33,11 +33,11 @@ try {
 
     // Lisätään asiakas
     $sql = "INSERT INTO asiakas (etunimi, sukunimi, osoite, postinro, postitmp) VALUES ('" .
-        filter_var($etunimi, FILTER_SANITIZE_FULL_SPECIAL_CHARS) . "','" .
-        filter_var($sukunimi, FILTER_SANITIZE_FULL_SPECIAL_CHARS) . "','" .
-        filter_var($osoite, FILTER_SANITIZE_FULL_SPECIAL_CHARS) . "','" .
-        filter_var($postinro, FILTER_SANITIZE_FULL_SPECIAL_CHARS) . "','" .
-        filter_var($postitmp, FILTER_SANITIZE_FULL_SPECIAL_CHARS)
+        filter_var($etunimi, FILTER_SANITIZE_SPECIAL_CHARS) . "','" .
+        filter_var($sukunimi, FILTER_SANITIZE_SPECIAL_CHARS) . "','" .
+        filter_var($osoite, FILTER_SANITIZE_SPECIAL_CHARS) . "','" .
+        filter_var($postinro, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_SANITIZE_NUMBER_FLOAT) . "','" .
+        filter_var($postitmp, FILTER_SANITIZE_SPECIAL_CHARS)
         . "')";
 
     $asiakasnro = executeInsert($db, $sql);
@@ -61,7 +61,7 @@ try {
     $db->commit();
 
     header('HTTP/1.1 200 OK');
-    $data = array('id' => $asiakasnro);
+    $data = array('id' => $tilausnro);
     echo json_encode($data);
 } catch (PDOException $pdoex) {
     $db->rollback();

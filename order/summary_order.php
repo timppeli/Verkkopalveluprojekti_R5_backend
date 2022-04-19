@@ -14,7 +14,7 @@ try {
   $order = $query->fetch(PDO::FETCH_ASSOC)["tilausnro"];
 
   // Haetaan tilatut tuotteet
-  $sql = "SELECT tuotenimi, hinta, kpl, hinta * kpl AS 'tuotesumma' FROM tuote
+  $sql = "SELECT tuotenro, tuotenimi, hinta, kpl, hinta * kpl AS 'tuotesumma' FROM tuote
   LEFT JOIN tilausrivi ON tilausrivi.tuote_id = tuote.tuotenro
   LEFT JOIN tilaus ON tilausrivi.tilaus_id = tilaus.tilausnro
   WHERE tilausnro = $order_id";

@@ -41,7 +41,18 @@ CREATE TABLE asiakas(
     sukunimi VARCHAR(50) NOT NULL,
     osoite VARCHAR(50) NOT NULL,
     postinro VARCHAR(50) NOT NULL,
-    postitmp VARCHAR(50) NOT NULL
+    postitmp VARCHAR(50) NOT NULL,
+    sposti VARCHAR(50) NOT NULL
+);
+
+-- TUNNUS-TAULUN LUONTI
+CREATE TABLE tunnus(
+    ktunnus VARCHAR(50) NOT NULL PRIMARY KEY,
+    asiakasnro INT,
+    admincheck BOOLEAN,
+    salasana VARCHAR(50),
+    CONSTRAINT `fk_tunnus_asiakas` FOREIGN KEY (asiakasnro) REFERENCES asiakas(asiakasnro)
+    ON DELETE RESTRICT
 );
 
 -- TILAUS-TAULUN LUONTI
@@ -128,7 +139,7 @@ VALUES ("Huoneenlämpö riittää peikonlehdelle. Lehtiä suihkutetaan. Kesäll�
 ("Sijoitetaan puolivarjoiseen tai valoisaan paikkaan, ei kuitenkaan suoraan auringonvaoon. Kastellaan harvoin, mutta kerralla kunnolla mieluiten altapäin. Pintamullan tulee kuivua ennen kastelua. Lannoitus keväästä syksyyn.", 19), 
 ("Pylvästyräkki sijoitetaan valoisaan paikkaan. Se viihtyy normaalissa huoneenlämmössä, talvella lämpötila voi olla viileämpikin. Vetoista paikkaa tulee kuitenkin välttää. Tyräkki sietää hyvin huoneilman kuivuutta.", 20), 
 ("Lapakaktus ei viihdy suorassa auringonpaahteessa, mutta sen kasvupaikan tulisi kuitenkin olla runsasvaloinen. Suorassa paahteessa lehdet saattavat palaa tai kellastua. Pärjää myös varjoisemmalla paikalla, mutta ei kuki.", 21), 
-("Menestyy auringossa ja hieman varjoisemmassa kasvupaikassa.  Kastellaan vasta kun kasvualasta on kuivunut kokonaan. Vältettävä liikakastelua.", 22);
+("Menestyy auringossa ja hieman varjoisemmassa kasvupaikassa. Kastellaan vasta kun kasvualasta on kuivunut kokonaan. Vältettävä liikakastelua.", 22);
 
 -- TIETEELLINEN NIMI -> ALOITUSDATAN SYÖTTÖ
 INSERT INTO tieteellinen_nimi

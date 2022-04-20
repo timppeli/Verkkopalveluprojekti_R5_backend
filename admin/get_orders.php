@@ -11,7 +11,8 @@ try {
 
   $ordersArray = array();
 
-  for ($i = 1; $i <= $numOfOrders; $i++) {
+  $i = 1;
+  while ($i <= $numOfOrders) {
     // Haetaan tilaus
     $sql = "SELECT tilausnro, tilausaika, kasitelty FROM tilaus WHERE tilausnro = $i";
     $query = $db->query($sql);
@@ -23,21 +24,22 @@ try {
     $query = $db->query($sql);
     $numOfRows = $query->fetch(PDO::FETCH_ASSOC)["count"];
 
+    $j = 0;
     // Loopataan tilausrivien läpi
-    for ($j = 0; $j < $numOfRows; $j++) {
+    while ($j < $numOfRows) {
       // Haetaan tilatut tuotteet
       $sql = "SELECT tuotenro, tuotenimi, kpl FROM tuote
     LEFT JOIN tilausrivi ON tilausrivi.tuote_id = tuote.tuotenro
     LEFT JOIN tilaus ON tilaus.tilausnro = tilausrivi.tilaus_id WHERE tilausnro = $i";
       $query = $db->query($sql);
       $products = $query->fetchAll(PDO::FETCH_ASSOC);
+      $j++;
     }
 
     // Haetaan asiakastiedot
     $sql = "SELECT asiakasnro, etunimi, sukunimi, osoite, postinro, postitmp FROM asiakas, tilaus WHERE asiakas.asiakasnro = tilaus.asiakas_id AND asiakasnro = $i";
     $query = $db->query($sql);
     $customer = $query->fetch(PDO::FETCH_ASSOC);
-
     
     // Lisätään tuotteet ja asiakastiedot tilaukseen
     $order["tuotteet"] = $products;
@@ -45,6 +47,7 @@ try {
 
     // Lisätään tilaus tilaustaulukkoon
     array_push($ordersArray, $order);
+    $i++;
   }
 
   header("HTTP/1.1 200 OK");

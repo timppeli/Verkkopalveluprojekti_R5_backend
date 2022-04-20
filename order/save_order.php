@@ -7,6 +7,7 @@ require_once '../inc/headers.php';
 $input = json_decode(file_get_contents("php://input"));
 $etunimi = filter_var($input->etunimi, FILTER_SANITIZE_SPECIAL_CHARS);
 $sukunimi = filter_var($input->sukunimi, FILTER_SANITIZE_SPECIAL_CHARS);
+$sposti = filter_var($input->sposti, FILTER_SANITIZE_EMAIL);
 $osoite = filter_var($input->osoite, FILTER_SANITIZE_SPECIAL_CHARS);
 $postinro = filter_var($input->postinro, FILTER_SANITIZE_SPECIAL_CHARS);
 $postitmp = filter_var($input->postitmp, FILTER_SANITIZE_SPECIAL_CHARS);
@@ -18,7 +19,7 @@ if (count($ostoskori) <= 0) {
 }
 
 // Tarkistetaan, ettei yksikään kenttä ole tyhjä
-if (empty($etunimi) || empty($sukunimi) || empty($osoite) || empty($postinro) || empty($postitmp)) {
+if (empty($etunimi) || empty($sukunimi) || empty($osoite) || empty($postinro) || empty($postitmp) || empty($sposti)) {
     throw new Exception("Tarkista, että kaikki kentät on täytetty.");
 }
 
@@ -32,9 +33,10 @@ try {
     $db->beginTransaction();
 
     // Lisätään asiakas
-    $sql = "INSERT INTO asiakas (etunimi, sukunimi, osoite, postinro, postitmp) VALUES ('" .
+    $sql = "INSERT INTO asiakas (etunimi, sukunimi, sposti, osoite, postinro, postitmp) VALUES ('" .
         filter_var($etunimi, FILTER_SANITIZE_SPECIAL_CHARS) . "','" .
         filter_var($sukunimi, FILTER_SANITIZE_SPECIAL_CHARS) . "','" .
+        filter_var($sposti, FILTER_SANITIZE_EMAIL) . "','" .
         filter_var($osoite, FILTER_SANITIZE_SPECIAL_CHARS) . "','" .
         filter_var($postinro, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_SANITIZE_NUMBER_FLOAT) . "','" .
         filter_var($postitmp, FILTER_SANITIZE_SPECIAL_CHARS)
@@ -61,7 +63,7 @@ try {
     $db->commit();
 
     header('HTTP/1.1 200 OK');
-    $data = array('id' => $tilausnro);
+    $data = array('order_id' => $tilausnro);
     echo json_encode($data);
 } catch (PDOException $pdoex) {
     $db->rollback();

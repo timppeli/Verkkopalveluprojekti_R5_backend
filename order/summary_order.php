@@ -30,7 +30,7 @@ try {
   $total = $query->fetch(PDO::FETCH_ASSOC)["loppusumma"];
 
   // Haetaan tilaajan tiedot
-  $sql = "SELECT etunimi, sukunimi, osoite, postinro, postitmp FROM asiakas
+  $sql = "SELECT etunimi, sukunimi, sposti, osoite, postinro, postitmp FROM asiakas
   LEFT JOIN tilaus ON asiakas.asiakasnro = tilaus.asiakas_id
   WHERE tilausnro = $order_id";
   $query = $db->query($sql);

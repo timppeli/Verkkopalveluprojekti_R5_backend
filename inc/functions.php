@@ -30,3 +30,19 @@ function executeInsert(object $db, string $sql): int {
     $query = $db->query($sql);
     return $db->lastInsertId();
 }
+
+// ---- SETUP
+
+function connectToLocalhost(): object {
+    $init = parse_ini_file("../inc/config.ini", true);
+    $host = $init["host"];
+    $user = $init["username"];
+    $password = $init["password"];
+    try {
+      $pdo = new PDO("mysql:host=$host;charset=utf8", $user, $password);
+      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $pdoex) {
+      echo $pdoex->getMessage();
+    }  
+    return $pdo;
+}

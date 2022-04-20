@@ -75,7 +75,8 @@ CREATE TABLE tilausrivi(
     CONSTRAINT `fk_tilausrivi_tilaus` FOREIGN KEY (tilaus_id)
     REFERENCES tilaus(tilausnro),
     CONSTRAINT `fk_tilausrivi_tuote` FOREIGN KEY (tuote_id)
-    REFERENCES tuote(tuotenro)
+    REFERENCES tuote(tuotenro),
+    CONSTRAINT `pk_tilausrivi` PRIMARY KEY (tilaus_id, tuote_id)
 );
 
 -- TUOTERYHMÄ -> ALOITUSDATAN SYÖTTÖ

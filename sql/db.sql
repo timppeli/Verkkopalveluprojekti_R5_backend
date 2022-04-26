@@ -119,7 +119,7 @@ VALUES ("Peikonlehti", "Peikonlehti kasvaa kookkaaksi kauniine, vihreine lehtine
 ("Lapakaktus", "Helppohoitoinen lapakaktus on epifyyttinen kaktus, jolla ei ole varsinaisia piikkejä. Kaktuksen varsissa on piikkien sijaan hiusmaisia karvatuppoja. Varret ovat kulmikkaita ja vihreitä. Runsaassa auringonpaisteessa väri muuttuu pinkistä kastanjanruskeaan.", 3, 19.99),
 ("Apinanhäntäkaktus", "Apinanhäntäkaktus elää luonnossa trooppisissa metsissä.", 3, 11.50),
 ("Keraaminen ruukku terrakotta", "Linjakas pyöreä ruukku italialaista terrakottaa. Halkaisija 25cm. Muista aluslautanen!", 4, 06.00),
-("Keraaminen aluslautanen", "Aluslautanen terrakotta ruukulle.", 4, 03.00),
+("Keraaminen aluslautanen", "Aluslautanen terrakotta ruukulle. Italialaista käsityötä suoraan Amaflin rannikolta. Tuhansia vuosia vanhoja perinteitä noudattaen ja kestävää kehitystä käyttäen valmistettu. Rajoitettu erämäärä, toimi siis nopeasti ja hanki omasi!", 4, 03.00),
 ("Rottinkinen kukkateline", "50cm korkea kukkateline. Materiaali on kaunista rottinkia.", 4, 35.00),
 ("Biolan musta multa 4L", "Biolan Musta Multa on yleismulta kaikille viherkasveille ja kukkiville ruukkukasveille. Kompostoimalla kypsytetty multaseos on lannoitettu broilerinlantakompostilla ja kalkittu magnesiumpitoisella kalkkikivijauheella. Kompostoinnin ansiosta multaan muodostuu kestävä mururakenne.", 4, 10.00);
 

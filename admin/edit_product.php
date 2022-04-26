@@ -9,16 +9,18 @@ $tuotenimi = filter_var($input->tuotenimi, FILTER_SANITIZE_SPECIAL_CHARS);
 $tuotekuvaus = filter_var($input->tuotekuvaus, FILTER_SANITIZE_SPECIAL_CHARS);
 $ohje = filter_var($input->ohje, FILTER_SANITIZE_SPECIAL_CHARS);
 $tieteellinen_nimi = filter_var($input->tieteellinen_nimi, FILTER_SANITIZE_SPECIAL_CHARS);
+$trnro = filter_var($input->trnro, FILTER_SANITIZE_SPECIAL_CHARS);
 
 try {
     $db = openDB();
     $db->beginTransaction();
     
-    $query = $db->prepare("UPDATE tuote SET tuotenimi = :tuotenimi, hinta = :hinta, tuotekuvaus = :tuotekuvaus WHERE tuotenro = :tuotenro");
+    $query = $db->prepare("UPDATE tuote SET tuotenimi = :tuotenimi, hinta = :hinta, tuotekuvaus = :tuotekuvaus, trnro = :trnro WHERE tuotenro = :tuotenro");
     $query->bindValue(":tuotenimi", $tuotenimi);
     $query->bindValue(":hinta", $hinta);
     $query->bindValue(":tuotenro", $tuotenro);
     $query->bindValue(":tuotekuvaus", $tuotekuvaus, PDO::PARAM_STR);
+    $query->bindValue(":trnro", $trnro);
     $query->execute();
 
     $query = $db->prepare("UPDATE tieteellinen_nimi SET tieteellinen_nimi = :tieteellinen_nimi WHERE tuote_id = :tuotenro;");

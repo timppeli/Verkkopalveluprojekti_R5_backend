@@ -12,6 +12,7 @@ $tieteellinen_nimi = filter_var($input->tieteellinen_nimi, FILTER_SANITIZE_SPECI
 
 try {
     $db = openDB();
+    $db->beginTransaction();
     
     $query = $db->prepare("UPDATE tuote SET tuotenimi = :tuotenimi, hinta = :hinta, tuotekuvaus = :tuotekuvaus WHERE tuotenro = :tuotenro");
     $query->bindValue(":tuotenimi", $tuotenimi);
@@ -31,10 +32,13 @@ try {
     $query->bindValue(":tuotenro", $tuotenro);
     $query->execute();
 
+    $db->commit();
+
     header("HTTP/1.1 200 OK");
     $data = "ok";
     print json_encode($data);
 } catch (PDOException $pdoex) {
+    $db->rollback();
     header('HTTP/1.1 500 Internal Servel Error');
     $error = array('error' => $pdoex->getMessage());
     print json_encode($error);

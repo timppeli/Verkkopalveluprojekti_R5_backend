@@ -35,3 +35,26 @@ try {
   throw $pdoex;
   echo $pdoex;
 }
+
+try {
+  // Connect to localhost
+  $pdo = openDB();
+
+  // Add admin
+  $tunnus = "admin";
+  $salasana = "admininsalasana";
+  $email = "admin@vihervaja.com";
+  
+  $sql = "INSERT INTO kayttaja (tunnus, salasana, sposti) VALUES (?, ?, ?)";
+  $statement = $pdo->prepare($sql);
+  $statement->bindParam(1, $tunnus);
+  $hash_pw = password_hash($salasana, PASSWORD_DEFAULT);
+  $statement->bindParam(2, $hash_pw);
+  $statement->bindParam(3, $email);
+  $statement->execute();
+
+  echo " Admin-tunnukset lisätty.";
+} catch (PDOException $pdoex) {
+  throw $pdoex;
+  echo $pdoex;
+}

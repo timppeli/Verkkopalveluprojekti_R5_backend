@@ -10,12 +10,13 @@ CREATE TABLE tuoteryhma (
 );
 
 -- UUTIS-TAULUN LUONTI
-CREATE TABLE uutiset (
+-- Laitettu kommentteihin koska rikkoo muut lauseet
+/* CREATE TABLE uutiset (
     id INT NOT NULL, PRIMARY KEY,
     otsikko VARCHAR(150) NOT NULL,
     pvm VARCHAR(100) NOT NULL,
     viesti VARCHAR(10000) NOT NULL
-);
+); */
 
 -- TUOTE-TAULUN LUONTI
 CREATE TABLE tuote (
@@ -53,14 +54,15 @@ CREATE TABLE asiakas(
     sposti VARCHAR(50) NOT NULL
 );
 
--- TUNNUS-TAULUN LUONTI
-CREATE TABLE tunnus(
-    ktunnus VARCHAR(50) NOT NULL PRIMARY KEY,
-    asiakasnro INT,
-    admincheck BOOLEAN,
-    salasana VARCHAR(50),
-    CONSTRAINT `fk_tunnus_asiakas` FOREIGN KEY (asiakasnro) REFERENCES asiakas(asiakasnro)
-    ON DELETE RESTRICT
+-- KAYTTAJA-TAULUN LUONTI
+CREATE TABLE kayttaja (
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  tunnus VARCHAR(25) NOT NULL UNIQUE,
+  salasana VARCHAR(255) NOT NULL,
+  sposti VARCHAR(50) NOT NULL,
+  asiakasnro INT,
+  CONSTRAINT `fk_kayttaja_asiakas` FOREIGN KEY (asiakasnro) REFERENCES asiakas(asiakasnro)
+  ON DELETE RESTRICT
 );
 
 -- TILAUS-TAULUN LUONTI

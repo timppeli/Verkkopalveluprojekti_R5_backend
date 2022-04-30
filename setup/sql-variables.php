@@ -32,12 +32,13 @@ CREATE TABLE asiakas(
   postitmp VARCHAR(50) NOT NULL,
   sposti VARCHAR(50) NOT NULL
 );
-CREATE TABLE tunnus(
-  ktunnus VARCHAR(50) NOT NULL PRIMARY KEY,
+CREATE TABLE kayttaja (
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  tunnus VARCHAR(25) NOT NULL UNIQUE,
+  salasana VARCHAR(255) NOT NULL,
+  sposti VARCHAR(50) NOT NULL,
   asiakasnro INT,
-  admincheck BOOLEAN,
-  salasana VARCHAR(50),
-  CONSTRAINT `fk_tunnus_asiakas` FOREIGN KEY (asiakasnro) REFERENCES asiakas(asiakasnro)
+  CONSTRAINT `fk_kayttaja_asiakas` FOREIGN KEY (asiakasnro) REFERENCES asiakas(asiakasnro)
   ON DELETE RESTRICT
 );
 CREATE TABLE tilaus(

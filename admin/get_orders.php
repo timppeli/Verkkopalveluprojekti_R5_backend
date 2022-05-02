@@ -6,7 +6,7 @@ try {
   $db = openDB();
 
   // Haetaan tilausten tiedot
-  $sql = "SELECT tilausnro, CONCAT(SUBSTRING(tilausaika, 9, 2), '.', SUBSTRING(tilausaika, 6, 2), '.', YEAR(tilausaika), ' ', TIME(tilausaika)) as tilausaika, kasitelty, asiakas_id FROM tilaus";
+  $sql = "SELECT tilausnro, CONCAT(SUBSTRING(tilausaika, 9, 2), '.', SUBSTRING(tilausaika, 6, 2), '.', YEAR(tilausaika), ' ', TIME(tilausaika)) as tilausaika, kasitelty, kasittelyaika, asiakas_id FROM tilaus";
   $statement = $db->prepare($sql);
   $statement->execute();
 

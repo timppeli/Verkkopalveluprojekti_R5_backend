@@ -37,7 +37,7 @@ try {
 }
 
 try {
-  // Connect to localhost
+  // Connect to db
   $pdo = openDB();
 
   // Add admin
@@ -54,6 +54,31 @@ try {
   $statement->execute();
 
   echo " Admin-tunnukset lisätty.";
+} catch (PDOException $pdoex) {
+  throw $pdoex;
+  echo $pdoex;
+}
+
+try {
+  // Connect to db
+  $pdo = openDB();
+
+  // Add Matti
+  $tunnus = "matti";
+  $salasana = "matti";
+  $email = "matti.meikalainen@meikalainen.com";
+  $asiakas_id = 1;
+  
+  $sql = "INSERT INTO kayttaja (tunnus, salasana, sposti, asiakasnro) VALUES (?, ?, ?, ?)";
+  $statement = $pdo->prepare($sql);
+  $statement->bindParam(1, $tunnus);
+  $hash_pw = password_hash($salasana, PASSWORD_DEFAULT);
+  $statement->bindParam(2, $hash_pw);
+  $statement->bindParam(3, $email);
+  $statement->bindParam(4, $asiakas_id);
+  $statement->execute();
+
+  echo " Matti Meikäläinen lisätty.";
 } catch (PDOException $pdoex) {
   throw $pdoex;
   echo $pdoex;

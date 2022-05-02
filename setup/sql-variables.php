@@ -46,6 +46,7 @@ CREATE TABLE tilaus(
   asiakas_id INT NOT NULL,
   tilausaika TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   kasitelty BOOLEAN NOT NULL DEFAULT 0,
+  kasittelyaika DATETIME,
   CONSTRAINT `fk_tilaus_asiakas` FOREIGN KEY (asiakas_id)
   REFERENCES asiakas(asiakasnro)
   ON DELETE RESTRICT
@@ -143,8 +144,10 @@ VALUES ("Monstera deliciosa", 1),
 ("Cleistocactus winteri", 22);
 INSERT INTO asiakas (etunimi, sukunimi, osoite, postinro, postitmp, sposti)
 VALUES ("Matti", "Meikäläinen", "Matinkotikuja 3", "00001", "Meikäläiskylä", "matti.meikalainen@meikalainen.com"), 
-("Teija", "Teikäläinen", "Teijantorpantie 5", "00002", "Teikäläisiö", "teija.teikalainen@teijanfirma.fi");
+("Teija", "Teikäläinen", "Teijantorpantie 5", "00002", "Teikäläisiö", "teija.teikalainen@teijanfirma.fi"), 
+("Nakke", "Nakuttaja", "Joku Kolo Puussa", "12345", "Mettä", "nakke@nakuttaja.com");
 INSERT INTO tilaus (asiakas_id, tilausaika, kasitelty)
-VALUES (1, "2022-04-09 08:03:12", 0), (1, "2022-03-12 11:53:08", 1), (2, "2022-04-03 15:17:09", 0);
+VALUES (1, "2022-04-09 08:03:12", 0), (1, "2022-03-12 11:53:08", 1), (2, "2022-04-03 15:17:09", 0), (3, "2022-05-03 12:29:45", 0);
+UPDATE tilaus SET kasittelyaika = "2022-03-15 09:34:14" WHERE tilausnro = 2;
 INSERT INTO tilausrivi (tilaus_id, tuote_id, kpl)
-VALUES (1, 12, 5), (1, 13, 2), (1, 1, 1), (2, 17, 3), (2, 2, 1), (3, 21, 5);';
+VALUES (1, 12, 5), (1, 13, 2), (1, 1, 1), (2, 17, 3), (2, 2, 1), (3, 21, 5), (4, 5, 3), (4, 25, 2), (4, 16, 1), (4, 26, 4);';

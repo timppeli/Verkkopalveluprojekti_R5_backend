@@ -45,13 +45,13 @@ CREATE TABLE tieteellinen_nimi (
 
 -- ASIAKAS-TAULUN LUONTI
 CREATE TABLE asiakas(
-    asiakasnro INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    etunimi VARCHAR(50) NOT NULL,
-    sukunimi VARCHAR(50) NOT NULL,
-    osoite VARCHAR(50) NOT NULL,
-    postinro VARCHAR(50) NOT NULL,
-    postitmp VARCHAR(50) NOT NULL,
-    sposti VARCHAR(50) NOT NULL
+  asiakasnro INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  etunimi VARCHAR(50) NOT NULL,
+  sukunimi VARCHAR(50) NOT NULL,
+  osoite VARCHAR(50) NOT NULL,
+  postinro VARCHAR(50) NOT NULL,
+  postitmp VARCHAR(50) NOT NULL,
+  sposti VARCHAR(50) NOT NULL
 );
 
 -- KAYTTAJA-TAULUN LUONTI
@@ -66,15 +66,15 @@ CREATE TABLE kayttaja (
 );
 
 -- TILAUS-TAULUN LUONTI
-DROP TABLE IF EXISTS tilaus;
 CREATE TABLE tilaus(
-    tilausnro INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    asiakas_id INT NOT NULL,
-    tilausaika TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    kasitelty BOOLEAN NOT NULL DEFAULT 0,
-    CONSTRAINT `fk_tilaus_asiakas` FOREIGN KEY (asiakas_id)
-    REFERENCES asiakas(asiakasnro)
-    ON DELETE RESTRICT
+  tilausnro INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  asiakas_id INT NOT NULL,
+  tilausaika TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  kasitelty BOOLEAN NOT NULL DEFAULT 0,
+  kasittelyaika DATETIME,
+  CONSTRAINT `fk_tilaus_asiakas` FOREIGN KEY (asiakas_id)
+  REFERENCES asiakas(asiakasnro)
+  ON DELETE RESTRICT
 );
 
 -- TILAUSRIVI-TAULUN LUONTI
@@ -176,3 +176,14 @@ VALUES ("Monstera deliciosa", 1),
 ("Euphorbia trigona", 20),
 ("Lepismium cruciforme", 21),
 ("Cleistocactus winteri", 22);
+
+INSERT INTO asiakas (etunimi, sukunimi, osoite, postinro, postitmp, sposti)
+VALUES ("Matti", "Meikäläinen", "Matinkotikuja 3", "00001", "Meikäläiskylä", "matti.meikalainen@meikalainen.com"), 
+("Teija", "Teikäläinen", "Teijantorpantie 5", "00002", "Teikäläisiö", "teija.teikalainen@teijanfirma.fi"), 
+("Nakke", "Nakuttaja", "Joku Kolo Puussa", "12345", "Mettä", "nakke@nakuttaja.com");
+
+INSERT INTO tilaus (asiakas_id, tilausaika, kasitelty)
+VALUES (1, "2022-04-09 08:03:12", 0), (1, "2022-03-12 11:53:08", 1), (2, "2022-04-03 15:17:09", 0), (3, "2022-05-03 12:29:45", 0);
+UPDATE tilaus SET kasittelyaika = "2022-03-15 09:34:14" WHERE tilausnro = 2;
+INSERT INTO tilausrivi (tilaus_id, tuote_id, kpl)
+VALUES (1, 12, 5), (1, 13, 2), (1, 1, 1), (2, 17, 3), (2, 2, 1), (3, 21, 5), (4, 5, 3), (4, 25, 2), (4, 16, 1), (4, 26, 4);

@@ -28,6 +28,11 @@ if (!ctype_digit($postinro) || strlen($postinro) != 5) {
     throw new Exception("Tarkista, että postinumero on oikein.");
 }
 
+// Tarkistetaan ettei postitoimipaikka ole virheellinen
+if (str_contains($postitmp, "!!")) {
+    throw new Exception("Tarkista, että postinumero on oikein.");
+}
+
 try {
     $db = openDB();
     $db->beginTransaction();
